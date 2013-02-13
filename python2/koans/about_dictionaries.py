@@ -30,23 +30,23 @@ class AboutDictionaries(Koan):
         babel_fish = {'one': 'uno', 'two': 'dos'}
         babel_fish['one'] = 'eins'
         
-        expected = {'two': 'dos', 'one': __}
+        expected = {'two': 'dos', 'one': 'eins'} #changed to eins
         self.assertEqual(expected, babel_fish)
         
     def test_dictionary_is_unordered(self):
         dict1 = {'one': 'uno', 'two': 'dos'}
         dict2 = {'two': 'dos', 'one': 'uno'}
         
-        self.assertEqual(____, dict1 == dict2)
+        self.assertEqual(True, dict1 == dict2) # should be true
         
     def test_dictionary_keys_and_values(self):
         babel_fish = {'one': 'uno', 'two': 'dos'}
-        self.assertEqual(__, len(babel_fish.keys()))
-        self.assertEqual(__, len(babel_fish.values()))
-        self.assertEqual(__, 'one' in babel_fish.keys())
-        self.assertEqual(__, 'two' in babel_fish.values())
-        self.assertEqual(__, 'uno' in babel_fish.keys())
-        self.assertEqual(__, 'dos' in babel_fish.values())
+        self.assertEqual(2, len(babel_fish.keys())) #changed to two
+        self.assertEqual(2, len(babel_fish.values())) #changed to two
+        self.assertEqual(True, 'one' in babel_fish.keys()) # changed to True
+        self.assertEqual(False, 'two' in babel_fish.values())# changed to fasle
+        self.assertEqual(False, 'uno' in babel_fish.keys())# changed to false
+        self.assertEqual(True, 'dos' in babel_fish.values())# changed to True
 
     def test_making_a_dictionary_from_a_sequence_of_keys(self):
         cards = {}.fromkeys(
@@ -54,6 +54,6 @@ class AboutDictionaries(Koan):
              'confused looking zebra'),
             42)
         
-        self.assertEqual(__, len(cards))
-        self.assertEqual(__, cards['green elf'])
-        self.assertEqual(__, cards['yellow dwarf'])
+        self.assertEqual(5, len(cards)) #changed len to 5 
+        self.assertEqual(42, cards['green elf']) #changed both to 42
+        self.assertEqual(42, cards['yellow dwarf'])
